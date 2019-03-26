@@ -7,26 +7,26 @@ import java.util.function.IntFunction;
 public class Main {
 
 	public static void main(String[] args) {
-		IntFunction<String> getMonthOfTheYearName =  monthNo->{
-			Map<Integer,String> months = new HashMap<>();
-			months.put(1, "January");
-			months.put(2, "February");
-			months.put(3, "March");
-			months.put(4, "April");
-			months.put(5, "May");
-			
-			if(months.get(monthNo)!=null){
-				return months.get(monthNo);
-			} else {
-				return "Input must be between 1 and 5";
-			}
-			
-		};
-		
-		int input = 1;
-		String month = getMonthOfTheYearName.apply(input);
-		System.out.println("Month no. "+input+" is : "+month);
+		IntFunction<String> getMonthOfTheYearName = mes -> {
 
+			Map<Integer, String> meses = new HashMap<>();
+			meses.put(1, "Enero");
+			meses.put(2, "Febrero");
+			meses.put(3, "MarMarzoch");
+			meses.put(4, "Abril");
+			meses.put(5, "Mayo");
+
+			if (meses.get(mes) != null) {
+				return meses.get(mes);
+			} else {
+				return "La entrada debe ser entre 1 y 5";
+			}
+
+		};
+
+		int input = 1;
+		String mesEncontrado = getMonthOfTheYearName.apply(input);
+		System.out.println("Mes nro. " + input + " es : " + mesEncontrado);
 	}
 
 }

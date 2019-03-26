@@ -1,7 +1,9 @@
 package lambdas;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 	static List<Alumno> listaAlumnos = new ArrayList<>();
@@ -27,21 +29,17 @@ public class Main {
 	}
 	
 	public static void crear() {
-		listaAlumnos.add(new Alumno(1, "1234566","Javier", "Molina Cano", "Java 8", 7, 28));
-		listaAlumnos.add(new Alumno(2, "1234566","Lillian", "GÛmez Alvarez", "Java 8", 10, 33));
-		listaAlumnos.add(new Alumno(3, "1234566","Sixto", "Marin", "Java 8", 8.6, 15));
-		listaAlumnos.add(new Alumno(4, "1234566","Gerardo", "Duque", "Java 8", 10, 13));
-		listaAlumnos.add(new Alumno(5, "1234566","Pedro", "Plasencia Velasquez", "Java 8", 9.5, 15));
-		listaAlumnos.add(new Alumno(6, "1234566","JosÈ", "Ariza Gonzalez", "Java 8", 8, 34));
-		listaAlumnos.add(new Alumno(7, "1234566","Germ·n", "Lotero", "Java 8", 9, 18));
-		listaAlumnos.add(new Alumno(8, "1234566","Oscar", "Murillo", "Java 8", 9, 32));
-		listaAlumnos.add(new Alumno(9, "1234566","Augusto", "Palacio", "Java 8", 9, 20));
-		listaAlumnos.add(new Alumno(10, "1234566","CÈsar", "Alzate", "Java 8", 9, 25));
-		listaAlumnos.add(new Alumno(11, "1234566","Gloria", "Gomes", "Java 8", 9, 36));
-		listaAlumnos.add(new Alumno(12, "1234566","Maria", "Valente", "Java 8", 7, 22));
-		listaAlumnos.add(new Alumno(13, "1234566","Rafael", "Blasco", "Java 8", 7, 24));
-		listaAlumnos.add(new Alumno(14, "1234566","Jorge", "Ruiz LeÛn", "Java 8", 5, 26));
-		listaAlumnos.add(new Alumno(15, "1234566","Gabriel", "Diaz Jimenez", "Java 8", 9, 39));
+		
+		String[] nombres = {"Javier", "Lillian","Pedro","Manuel","Jose Julian","Gabriel","Martha","Joel","Juanjo","Maria"};
+		String[] apellidos = {"Molina Cano", "Gomez Alvarez","Duque", "Gonzalez","Gomez Gutierrez","Fern√°ndez de la Pe√±a","Morillo Perez","Valente","Diaz Jim√©nez","Marin"};
+		
+		final String nombreCurso = "Java 8";
+		
+		for (int i = 0; i < 10; i++) {
+			int calificacion = new Random().ints(2, 10).limit(1).findFirst().getAsInt();
+			int edad = new Random().ints(20, 40).limit(1).findFirst().getAsInt();
+			listaAlumnos.add(new Alumno(i, "12345" + i, nombres[i], apellidos [i], nombreCurso, calificacion, edad));
+		}
 	}
 	
 	public static void obtenerTodos() {
@@ -71,7 +69,7 @@ public class Main {
 	
 	public static void menorEdad() {
 		System.out.println("****Obtener alumno con menor edad****");
-		System.out.println(listaAlumnos.stream().min((a1, a2)-> a1.getEdad() - a2.getEdad()));
+		System.out.println(listaAlumnos.stream().min(Comparator.comparing(Alumno::getEdad)));
 	}
 	
 	public static void primeroEnLista() {

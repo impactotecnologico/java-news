@@ -17,7 +17,6 @@ public class Main {
 		
 		DoubleConsumer doAction = incrementByOne.andThen(decrementByOne);
 		doAction.accept(1000);
-
 	}
 
 }

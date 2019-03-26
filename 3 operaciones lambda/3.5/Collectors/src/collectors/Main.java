@@ -7,16 +7,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-	static Libros l1= new Libros("El señor de los anillos",1000);
+	static Libros l1= new Libros("El seÃ±or de los anillos",1000);
 	static Libros l2= new Libros("La fundacion",500);
 	static Libros l3= new Libros("El caliz de fuego",600);
 	
 	public static void main(String[] args) {
 		array();
-		list();
-		set();
-		join();
-		reduce();
+//		list();
+//		set();
+//		join();
+//		reduce();
 	}
 	
 	public static void array() {

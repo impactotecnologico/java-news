@@ -7,25 +7,22 @@ import java.util.function.LongFunction;
 public class Main {
 
 	public static void main(String[] args) {
-		LongFunction<String> getStatus = acknowledgementNo->{
-			Map<Long,String> claimStatus = new HashMap<>();
-			claimStatus.put(912312312L, "Process Completed");
-			claimStatus.put(844312343L, "In Progress");
-			claimStatus.put(111312353L, "Rejected");
-			claimStatus.put(777312399L, "Awaiting Approval");
+		LongFunction<String> getStatus = tramitesExtranjeria->{
+			Map<Long,String> tramites = new HashMap<>();
+			tramites.put(912312312L, "Proceso Completado");
+			tramites.put(844312343L, "In Progress");
+			tramites.put(111312353L, "Rechazado");
+			tramites.put(777312399L, "Esperando Aprobación");
 			
-			if(claimStatus.containsKey(acknowledgementNo)) {
-				return claimStatus.get(acknowledgementNo);
+			if(tramites.containsKey(tramitesExtranjeria)) {
+				return tramites.get(tramitesExtranjeria);
 			} else {
-				return "Invalid Acknowledgement No.";
+				return "Nro de Trámite Inválido";
 			}
 		};
-		
 		long input = 912312312L;
 		String status = getStatus.apply(input);
-		System.out.println("Status of Acknowledgement No. "+input+": "+status);
-
-
+		System.out.println("Status de trámite Nro. "+input+": "+status);
 	}
 
 }

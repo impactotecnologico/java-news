@@ -5,12 +5,12 @@ import java.util.function.DoubleFunction;
 public class Main {
 
 	public static void main(String[] args) {
-		DoubleFunction<String> getGrade = marks->{
-			if(marks>90 && marks<=100){
+		DoubleFunction<String> getGrado = nivel->{
+			if(nivel>90 && nivel<=100){
 				return "A";
-			} else if(marks>70 && marks<=90){
+			} else if(nivel>70 && nivel<=90){
 				return "B";
-			} else if(marks>50 && marks<=70){
+			} else if(nivel>50 && nivel<=70){
 				return "C";
 			} else {
 				return "D";
@@ -18,9 +18,9 @@ public class Main {
 		};
 		
 		double input = 91;
-		System.out.println("Input Marks: "+input);
-		String grade = getGrade.apply(input);
-		System.out.println("Grade : "+grade);
+		System.out.println("Nivel de entrada: "+input);
+		String grado = getGrado.apply(input);
+		System.out.println("Grado : "+grado);
 
 	}
 

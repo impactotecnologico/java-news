@@ -23,11 +23,11 @@ public class Main {
 		values.add("item5");
 		
 		boolean valid = checkValueInList.apply(values, "item3");
-		System.out.println("Does the list contains item3? : "+valid);
+		System.out.println("La lista contiene item3? : "+valid);
 		
-		System.out.println("Does the list contains item1? : "+checkValueInList.apply(values, "item1"));
-		System.out.println("Does the list contains item6? : "+checkValueInList.apply(values, "item6"));
-		System.out.println("Does the list contains item9? : "+checkValueInList.apply(values, "item9"));
+		System.out.println("La lista contiene item1? : "+checkValueInList.apply(values, "item1"));
+		System.out.println("La lista contiene item6? : "+checkValueInList.apply(values, "item6"));
+		System.out.println("La lista contiene item9? : "+checkValueInList.apply(values, "item9"));
 
 	}
 

@@ -1,4 +1,4 @@
-package Shuffling;
+package shuffling;
 
 import java.util.ArrayList;
 import java.util.Collections;

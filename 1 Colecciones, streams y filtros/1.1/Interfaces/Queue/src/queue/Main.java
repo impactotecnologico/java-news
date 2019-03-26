@@ -1,10 +1,11 @@
 package queue;
 
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Main {
 	public static void main(String[] args) {
-		PriorityQueue pQueue = new PriorityQueue();
+		Queue pQueue = new PriorityQueue();
 		pQueue.add(123);
 		pQueue.add(46);
 		pQueue.add(78);

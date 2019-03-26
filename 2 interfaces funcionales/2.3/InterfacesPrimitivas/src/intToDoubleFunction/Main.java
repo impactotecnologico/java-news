@@ -12,7 +12,7 @@ public class Main {
 		
 		int input = 10;
 		double result = getDouble.applyAsDouble(input);
-		System.out.println("Input "+input+" as double : "+result);
+		System.out.println("Entrada "+input+" como double : "+result);
 
 	}
 

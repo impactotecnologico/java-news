@@ -1,11 +1,12 @@
 package referencias;
 
+@FunctionalInterface
 interface MiFunc{
 	MiClase func(String s);
 }
 
 class MiClase{
-	private String str;
+	private static String str;
 	
 	MiClase(String s){
 		str=s;
@@ -14,6 +15,7 @@ class MiClase{
 	String getStr() {
 		return str;
 	}
+	
 }
 
 public class ConstructorDemo {
@@ -22,5 +24,7 @@ public class ConstructorDemo {
 		
 		MiClase mc = miFunc.func("Prueba");
 		System.out.println("str en mi clase: "+mc.getStr());
+		
+		System.out.println();
 	}
 }

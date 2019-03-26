@@ -1,28 +1,44 @@
 package optionals;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import optionals.Persona;
+import optionals.ServicioPersonas;
 
 public class Main {
 
 	public static void main(String[] args) {
-		nullPointerTipico();
+	
 		
-		optionalVacio();
+//		filterEjemplo();
 		
-		optionalAnulable();
+//		ejemploMap();
 		
-		orElseEjemplo();
+//		ejemploFlatMap();
 		
-		ejemploThrow();
+//		orElseEjemplo();
 		
-		isPresentEjemplo();
+//		ejemploThrow();
 		
-		ifPresentEjemplo();
+		orElseGetEjemplo();
+
 		
-		ejemploMap();
-		
-		filterEjemplo();
+//		nullPointerTipico();
+//		
+//		optionalVacio();
+//		
+//		optionalAnulable();
+//		
+//		isPresentEjemplo();
+//		
+//		ifPresentEjemplo();
+//		
 
 	}
 	
@@ -52,6 +68,16 @@ public class Main {
 		}catch(NoSuchElementException ex) {
 			System.out.println(ex);
 		}
+	}
+	
+	private static void orElseGetEjemplo() {
+		
+		ServicioPersonas sp = new ServicioPersonas();
+		Optional<Persona> per = sp.buscar("Pedro"); // test con Miguel
+		
+		System.out.println(per
+		  .orElseGet(() -> new Persona("Pepito")).getNombre());
+		
 	}
 	
 	private static void orElseEjemplo() {
@@ -90,17 +116,34 @@ public class Main {
 		str.ifPresent(System.out::println);
 	}
 	
+	private static void ejemploFlatMap () {
+		List<String> myList = Stream.of("a", "b")
+				.map(String::toUpperCase).collect(Collectors.toList());
+		System.out.println(myList);
+		
+		
+		List<List<String>> list = Arrays.asList(
+				  Arrays.asList("a"),
+				  Arrays.asList("b"));
+		
+		System.out.println(list
+				  .stream()
+				  .flatMap(Collection::stream)
+				  .collect(Collectors.toList()));
+		
+	}
+	
 	private static void ejemploMap() {
-		Optional<String> str = Optional.of("lorem ipsum lo que sigue en la cadena de texto en latín");
+		Optional<String> str = Optional.of("lorem ipsum lo que sigue en la cadena de texto en latï¿½n");
 		Optional<Integer> sizeOptional = str.map(String::length);
 		
-		System.out.println("el tamaño del string " + sizeOptional.orElse(0));
+		System.out.println("el tamaï¿½o del string " + sizeOptional.orElse(0));
 		
 		//else
 		Optional<String> strNull = Optional.ofNullable(null);
 		Optional<Integer> sizeNull = strNull.map(x -> x.length());
 		
-		System.out.println("El tamaño del string: "+sizeNull.orElse(0));
+		System.out.println("El tamaï¿½o del string: "+sizeNull.orElse(-1));
 	}
 	
 	private static void filterEjemplo() {
