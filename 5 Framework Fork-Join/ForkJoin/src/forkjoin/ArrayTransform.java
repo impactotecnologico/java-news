@@ -18,7 +18,7 @@ public class ArrayTransform extends RecursiveAction{
 	
 	protected void compute() {
 		if(end - start < threshold) {
-			computeDirectly();
+			convierte();
 		}else {
 			int middle = (end + start) / 2;
 			ArrayTransform subtask1 = new ArrayTransform(array, number, start, middle);
@@ -28,7 +28,7 @@ public class ArrayTransform extends RecursiveAction{
 		}
 	}
 	
-	public void computeDirectly() {
+	public void convierte() {
 		for(int i=start;i<end;i++) {
 			array[i] = array[i] * number;
 		}

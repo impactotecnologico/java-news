@@ -1,5 +1,6 @@
 package forkjoin;
 
+import java.time.Instant;
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 
@@ -8,11 +9,41 @@ public class Main2 {
 	static int[] array = randomArray();
 	
 	public static void main(String [] args) {
+		
+		
+		
+		
 		ContadorArray mainTask = new ContadorArray(array, 0, SIZE);
 		ForkJoinPool pool = new ForkJoinPool();
-		Integer contadorDePares = pool.invoke(mainTask);
 		
-		System.out.println("El total de números pares es: " + contadorDePares);
+		long ini = Instant.now().toEpochMilli();
+		Integer contadorDePares = pool.invoke(mainTask);
+		long fin = Instant.now().toEpochMilli();
+		
+		System.out.println("El total de numeros pares es: " + contadorDePares);
+		
+		
+		
+		System.out.println(fin-ini);
+		
+		
+		
+		
+		
+		
+		
+		mainTask = new ContadorArray(array, 0, SIZE);
+		ini = Instant.now().toEpochMilli();
+		contadorDePares = mainTask.calcula();
+		fin = Instant.now().toEpochMilli();
+		
+		System.out.println("El total de numeros pares es: " + contadorDePares);
+		
+		
+		
+		System.out.println(fin-ini);
+		
+		
 	}
 	
 	static int[] randomArray() {

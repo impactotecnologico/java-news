@@ -11,11 +11,10 @@ public class Basico {
 		executor.submit(() -> {
 		    String threadName = Thread.currentThread().getName();
 		    System.out.println("Hello " + threadName);
-		});
-		
+		});	
 		
 		try {
-		    System.out.println("attempt to shutdown executor");
+		    System.out.println("Intento de detener el executor");
 		    executor.shutdown();
 		    executor.awaitTermination(5, TimeUnit.SECONDS);
 		}

@@ -10,17 +10,19 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-//		conDelayAndPeriod();
+		conDelayAndPeriod();
 		
-		futuroSimple();
+//		futuroSimple();
 
 	}
+	
+	
 
 	private static void futuroSimple() throws InterruptedException, ExecutionException {
 		ScheduledExecutorService executor = Executors.
 			    newSingleThreadScheduledExecutor();
 			 
-			ScheduledFuture future = executor.schedule(
+			ScheduledFuture<String> future = executor.schedule(
 			    new Callable<String>() {
 			 
 			        @Override
@@ -33,13 +35,34 @@ public class Main {
 			 
 			executor.shutdown();
 	}
-
+	
 	private static void conDelayAndPeriod() {
 		ScheduledExecutorService execService = Executors.newScheduledThreadPool(5);
 		execService.scheduleAtFixedRate(()->{
 
 			System.out.println("Momento: "+ new java.util.Date());
-		}, 0, 1000L, TimeUnit.MILLISECONDS);
+		}, 2000L, 1000L, TimeUnit.MILLISECONDS);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

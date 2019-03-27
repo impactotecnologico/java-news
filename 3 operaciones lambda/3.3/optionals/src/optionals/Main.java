@@ -73,7 +73,7 @@ public class Main {
 	private static void orElseGetEjemplo() {
 		
 		ServicioPersonas sp = new ServicioPersonas();
-		Optional<Persona> per = sp.buscar("Pedro"); // test con Miguel
+		Optional<Persona> per = sp.buscar("Miguel"); // test con Miguel
 		
 		System.out.println(per
 		  .orElseGet(() -> new Persona("Pepito")).getNombre());
@@ -122,6 +122,8 @@ public class Main {
 		System.out.println(myList);
 		
 		
+		
+		
 		List<List<String>> list = Arrays.asList(
 				  Arrays.asList("a"),
 				  Arrays.asList("b"));
@@ -137,13 +139,13 @@ public class Main {
 		Optional<String> str = Optional.of("lorem ipsum lo que sigue en la cadena de texto en lat�n");
 		Optional<Integer> sizeOptional = str.map(String::length);
 		
-		System.out.println("el tama�o del string " + sizeOptional.orElse(0));
+		System.out.println("el tamaño del string " + sizeOptional.orElse(0));
 		
 		//else
 		Optional<String> strNull = Optional.ofNullable(null);
 		Optional<Integer> sizeNull = strNull.map(x -> x.length());
 		
-		System.out.println("El tama�o del string: "+sizeNull.orElse(-1));
+		System.out.println("El tamaño del string: "+sizeNull.orElse(-1));
 	}
 	
 	private static void filterEjemplo() {

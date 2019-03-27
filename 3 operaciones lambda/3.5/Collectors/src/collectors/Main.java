@@ -12,21 +12,22 @@ public class Main {
 	static Libros l3= new Libros("El caliz de fuego",600);
 	
 	public static void main(String[] args) {
-		array();
+//		array();
 //		list();
 //		set();
 //		join();
-//		reduce();
+		reduce();
 	}
 	
 	public static void array() {
 		Stream<Libros> libros = Stream.of(l1,l2,l3);
-		Libros[] arrayLibro= libros.toArray(Libros[]::new);
+		Libros[] arrayLibro= libros.toArray(Libros[ ]::new);
 		  
 		 for(int i=0;i<arrayLibro.length;i++) {
 			 System.out.println(arrayLibro[i].getPaginas());
 		 }
 	}
+	
 	
 	public static void list() {
 		Stream<Libros> libros = Stream.of(l1,l2,l3);
@@ -55,9 +56,15 @@ public class Main {
 	
 	public static void reduce() {
 		Stream<Libros> libros = Stream.of(l1,l2,l3);
-		Optional<Integer> resultado3 = libros.map((l) -> l.getPaginas()).collect(Collectors.reducing(Integer::sum));
+		Optional<Integer> resultado3 = libros.map((l) 
+				-> l.getPaginas())
+				.collect(Collectors.reducing(Integer::sum));
+		
+		libros = Stream.of(l1,l2,l3);
+		int res = libros.mapToInt(Libros::getPaginas).sum();
 		 
 		System.out.println(resultado3.get());
+		System.out.println(res);
 
 	}
 

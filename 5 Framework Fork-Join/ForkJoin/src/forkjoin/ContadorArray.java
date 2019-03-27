@@ -16,7 +16,7 @@ public class ContadorArray extends RecursiveTask<Integer>{
 	
 	protected Integer compute() {
 		if(end-start < threshold) {
-			return computeDirectly();
+			return calcula();
 		}else {
 			int middle = (end + start) / 2;
 			
@@ -30,7 +30,7 @@ public class ContadorArray extends RecursiveTask<Integer>{
 		
 	}
 	
-	protected Integer computeDirectly() {
+	protected Integer calcula() {
 		Integer count = 0;
 		for(int i = start; i< end; i++) {
 			if(array[i]%2==0) {
