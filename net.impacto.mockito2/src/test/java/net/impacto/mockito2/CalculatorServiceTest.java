@@ -19,6 +19,7 @@ public class CalculatorServiceTest {
 
 	@Mock
 	private DataService dataService;
+	
 
 	@Test
 	public void testCalculateAvg_simpleInput() {
