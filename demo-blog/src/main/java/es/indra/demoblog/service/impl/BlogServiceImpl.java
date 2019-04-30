@@ -17,7 +17,7 @@ public class BlogServiceImpl implements BlogService {
 	@Autowired
 	BlogRepository blogRepository;
 
-	@MedidorDeTiempo
+//	@MedidorDeTiempo
 	@Override
 	public List<Blog> getAllBlog() {
 		return this.blogRepository.findAll();
