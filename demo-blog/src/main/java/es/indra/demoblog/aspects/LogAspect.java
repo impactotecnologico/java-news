@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LogAspect {
 
-	@Before("execution(* es.indra.demoblog.service.impl.*.*(..))")
+	//@Before("execution(* es.indra.demoblog.service.impl.*.*(..))")
 	public void antesDeLosMetodos(JoinPoint join) {
 
 		System.out.println("Dentro del aspecto para: " + join);
 
 	}
 
-	@Around("@annotation(es.indra.demoblog.aspects.annotations.MedidorDeTiempo)")
+	//@Around("@annotation(es.indra.demoblog.aspects.annotations.MedidorDeTiempo)")
 	public void around(ProceedingJoinPoint joinPoint) throws Throwable {
 		long inicio = System.currentTimeMillis();
 
