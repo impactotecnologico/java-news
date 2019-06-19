@@ -22,12 +22,12 @@ public class Main {
 		
 //		ejemploFlatMap();
 		
-//		orElseEjemplo();
+		orElseEjemplo();
 		
 //		ejemploThrow();
 		
-		orElseGetEjemplo();
-
+//		orElseGetEjemplo();
+//
 		
 //		nullPointerTipico();
 //		
@@ -131,6 +131,7 @@ public class Main {
 		System.out.println(list
 				  .stream()
 				  .flatMap(Collection::stream)
+				  .map(String::toUpperCase)
 				  .collect(Collectors.toList()));
 		
 	}

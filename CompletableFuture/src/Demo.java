@@ -3,9 +3,9 @@ import java.util.concurrent.CompletableFuture;
 public class Demo {
 	
 	public static void main(String[] args) {
-//		simple();
+		simple();
 		
-//		asincrono();
+		asincrono();
 		
 		StringBuilder result = new StringBuilder();
 		CompletableFuture.completedFuture("Then Accept").thenAccept(s -> result.append(s));

@@ -12,8 +12,8 @@ public class Main {
 	public static void execute() {
 	    Executor executor = new Invoker();
 	    executor.execute( () -> {
-	        System.out.println("Hola executor");
+	        System.out.println("Hola executor" + Thread.currentThread().getName());
 	    });
-	    System.out.println("Final!!!");
+	    System.out.println("Final!!!"+Thread.currentThread().getName());
 	}
 }

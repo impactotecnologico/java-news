@@ -13,14 +13,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.indra.demoblog.model.Blog;
 import es.indra.demoblog.service.BlogService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
+@Api(value = "Blog Controller")
 public class BlogController {
 
 	@Autowired
 	BlogService blogService;
 
 	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "Successfully retrieved list"),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	public ResponseEntity<List<Blog>> getAllBlogs() {
 		List<Blog> todosLosBlogs = this.blogService.getAllBlog();
 
@@ -30,7 +41,8 @@ public class BlogController {
 	}
 
 	@RequestMapping(value = "/blog/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Blog> getById(@PathVariable("id") int id) {
+	
+	public ResponseEntity<Blog> getById(@ApiParam(value = "Consulta por ID", required = true) @PathVariable("id") int id) {
 		Blog b = this.blogService.getBlogById(id);
 		if (b == null) {
 			return new ResponseEntity<Blog>(b, HttpStatus.NOT_FOUND);

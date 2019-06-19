@@ -8,12 +8,12 @@ import java.util.function.Function;
 public class Main {
 
 	public static void main(String[] args) {
-		BiFunction<Student,Subject,Boolean> checkIfStudentHasSubject = (student,subject)->{
-			if(student!=null && subject!=null){
-				List<Subject> existingSubjects = student.getSubjects();
-				if(existingSubjects!=null && !existingSubjects.isEmpty()){
-					for(Subject eachSubject : existingSubjects){
-						if(eachSubject.getName().equals(subject.getName())){
+		BiFunction<Estudiante,Asignatura,Boolean> checkSiEstudianteTieneAsignatura = (estudiante,asignatura)->{
+			if(estudiante!=null && asignatura!=null){
+				List<Asignatura> encontradas = estudiante.getSubjects();
+				if(encontradas!=null && !encontradas.isEmpty()){
+					for(Asignatura cadaUna : encontradas){
+						if(cadaUna.getName().equals(asignatura.getName())){
 							return true;
 						}
 					}
@@ -23,36 +23,36 @@ public class Main {
 		};
 		Function<Boolean,String> getStatus = (valid)->{
 			if(valid){
-				return "Found Subject";
+				return "Encontrada";
 			} else {
-				return "Could not find Subject";
+				return "No Encontrada";
 			}
 		};
 		
-		BiFunction<Student,Subject,String> getSubjectCheckStatus = checkIfStudentHasSubject.andThen(getStatus);
+		BiFunction<Estudiante,Asignatura,String> getAsignaturaCheckStatus = checkSiEstudianteTieneAsignatura.andThen(getStatus);
 		
-		Student student = new Student("Tom Hanks");
+		Estudiante student = new Estudiante("Tom Hanks");
 		
-		Subject maths = new Subject("Maths");
-		Subject english = new Subject("English");
-		Subject science = new Subject("Science");
+		Asignatura maths = new Asignatura("Maths");
+		Asignatura english = new Asignatura("English");
+		Asignatura science = new Asignatura("Science");
 		
-		List<Subject> subjects = new ArrayList<Subject>();
-		subjects.add(science);
-		subjects.add(english);
-		subjects.add(maths);
+		List<Asignatura> asignatura = new ArrayList<Asignatura>();
+		asignatura.add(science);
+		asignatura.add(english);
+		asignatura.add(maths);
 		
-		student.setSubjects(subjects);
+		student.setSubjects(asignatura);
 		
-		Subject geography = new Subject("Geograohy");
-		String checkSubjectStatus = getSubjectCheckStatus.apply(student, geography);
+		Asignatura geography = new Asignatura("Geograohy");
+		String checkSubjectStatus = getAsignaturaCheckStatus.apply(student, geography);
 		System.out.println("Does Student have Geography? : "+checkSubjectStatus);
 		
-		System.out.println("Does Student have Math? : "+getSubjectCheckStatus.apply(student, maths));
-		System.out.println("Does Student have English? : "+getSubjectCheckStatus.apply(student, english));
+		System.out.println("Does Student have Math? : "+getAsignaturaCheckStatus.apply(student, maths));
+		System.out.println("Does Student have English? : "+getAsignaturaCheckStatus.apply(student, english));
 		
-		Subject history = new Subject("History");
-		System.out.println("Does Student have History? : "+getSubjectCheckStatus.apply(student, history));
+		Asignatura history = new Asignatura("History");
+		System.out.println("Does Student have History? : "+getAsignaturaCheckStatus.apply(student, history));
 
 
 	}
