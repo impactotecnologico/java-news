@@ -1,4 +1,4 @@
-package es.indra.demoblog.controller;
+package net.impactotecnologico.demoblog.controller;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.indra.demoblog.model.Blog;
-import es.indra.demoblog.service.BlogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import net.impactotecnologico.demoblog.model.Blog;
+import net.impactotecnologico.demoblog.service.BlogService;
 
 @RestController
 @Api(value = "Blog Controller")
