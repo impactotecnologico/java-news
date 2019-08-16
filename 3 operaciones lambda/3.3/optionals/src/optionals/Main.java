@@ -16,13 +16,13 @@ public class Main {
 	public static void main(String[] args) {
 	
 		
-//		filterEjemplo();
+		filterEjemplo();
 		
 //		ejemploMap();
 		
 //		ejemploFlatMap();
 		
-		orElseEjemplo();
+//		orElseEjemplo();
 		
 //		ejemploThrow();
 		
@@ -149,18 +149,32 @@ public class Main {
 		System.out.println("El tamaño del string: "+sizeNull.orElse(-1));
 	}
 	
+	
+	
+	
+	
+	
+	
 	private static void filterEjemplo() {
 		Optional<Car> cocheVacio = Optional.empty();
-		cocheVacio.filter(x->"250".equals(x.getPrecio())).ifPresent(x->System.out.println(x.getPrecio() + " coche vacio"));
+		cocheVacio.filter(x->"250".equals(x.getPrecio()))
+			.ifPresent(x->System.out.println(x.getPrecio() + " coche vacio"));
 		
+
 		//Si el valor no pasa el filtro
 		Optional<Car> cocheMuyCaro = Optional.of(new Car("3000"));
-		cocheMuyCaro.filter(x->"250".equals(x.getPrecio())).ifPresent(x->System.out.println(x.getPrecio() + " coche muy caro"));
+		cocheMuyCaro.filter(x->"250".equals(x.getPrecio()))
+			.ifPresent(x->System.out.println(x.getPrecio() + " coche muy caro"));
 		
-		//Si pasa el filtro y tiene valores
+		//Si pasa el filtro y tiene valores 
 		Optional<Car> cocheAceptable = Optional.of(new Car("250"));
-		cocheAceptable.filter(x->"250".equals(x.getPrecio())).ifPresent(x->System.out.println(x.getPrecio() + " coche aceptable"));
+		cocheAceptable.filter(x->"250".equals(x.getPrecio()))
+			.ifPresent(x->System.out.println(x.getPrecio() + " coche aceptable"));
 	
 	}
 
+	
+	
+	
+	
 }

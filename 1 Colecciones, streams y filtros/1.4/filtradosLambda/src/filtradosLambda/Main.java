@@ -13,21 +13,22 @@ import java.util.stream.Stream;
 public class Main {
 
 	public static void main(String[] args) {
-		Persona p1 = new Persona("juan", "sanchez", 20);
-		Persona p2 = new Persona("ana", "gomez", 12);
-		Persona p3 = new Persona("pedro", "gutierrez", 40);
-		List<Persona> lista = Arrays.asList(p1, p2, p3);
-
-		getFilter(lista);
-		getMap(lista);
-		getCollect(lista);
-		getParallel(lista);
-		getFiltered();
-		getLimit();
-		getDistinct();
-		getSort();
+		
+//		Persona p1 = new Persona("juan", "sanchez", 20);
+//		Persona p2 = new Persona("ana", "gomez", 12);
+//		Persona p3 = new Persona("pedro", "gutierrez", 40);
+//		List<Persona> lista = Arrays.asList(p1, p2, p3);
+//
+//		getFilter(lista);
+//		getMap(lista);
+//		getCollect(lista);
+//		getParallel(lista);
+//		getFiltered();
+//		getLimit();
+//		getDistinct();
+//		getSort();
 		getJoin();
-		getStatistics();
+//		getStatistics();
 		
 
 	}
@@ -104,15 +105,24 @@ public class Main {
 		random2.ints().limit(4).sorted().forEach(System.out::println);
 		System.out.println("getSort=======");
 	}
+	
+	
+	
+	
 
 	public static void getJoin() {
 		List<String> strings2 = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
 		
-		String mergedString = strings2.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
+		String mergedString = strings2.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(";"));
 		System.out.println("Merged String: " + mergedString);
 
 	}
 
+	
+	
+	
+	
+	
 	public static void getStatistics() {
 		List<Integer> integers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
 
@@ -124,4 +134,22 @@ public class Main {
 		System.out.println("Average of all numbers : " + stats.getAverage());
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

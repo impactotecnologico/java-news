@@ -8,21 +8,22 @@ public class CarritoDeLaCompraStreams {
 	private Collection<Integer> precios;
 
 	public CarritoDeLaCompraStreams(Collection<Integer> precios) {
-
 		this.precios = precios;
 	}
 
 	public int calcularPrecioTotal() {
-		int precioTotal = this.precios.stream().mapToInt(Integer::intValue).sum();
-		return precioTotal;
+		return this.precios.stream().
+				mapToInt(Integer::intValue)
+				.sum();
 	}
 
 	public int calcularDescuentoTotal(int cantidadConDescuento) {
-		
-		return this.precios.stream().filter(precio -> precio.intValue() >= cantidadConDescuento).sorted()
-				.mapToInt(precio -> precio*5/100 ).sum();//.forEach(p-> System.out.println(p));
-		
-		
+
+		return this.precios.stream().filter(
+				precio -> precio.intValue() >= cantidadConDescuento)
+				.sorted()
+				.mapToInt(precio -> precio * 5 / 100)
+				.sum();
 	}
 
 	public static void main(String[] args) {

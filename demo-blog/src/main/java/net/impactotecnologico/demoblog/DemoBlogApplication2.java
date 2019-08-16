@@ -15,6 +15,7 @@ import net.impactotecnologico.demoblog.repository.BlogRepository;
 import net.impactotecnologico.demoblog.repository.FichaRepository;
 import net.impactotecnologico.demoblog.repository.custom.CustomBlogRepository;
 import net.impactotecnologico.demoblog.repository.jpql.BlogAnnotatedRepository;
+import net.impactotecnologico.demoblog.repository.jpql.BlogAnnotatedRepository2;
 import net.impactotecnologico.demoblog.repository.namedqueries.BlogNamedQRepository;
 import net.impactotecnologico.demoblog.repository.namedqueries.FichaHibernateNamedQRepository;
 
@@ -82,6 +83,12 @@ public class DemoBlogApplication2 {
 		
 		List<Blog> blogs2 = bar.findByTitulo("Titulo", PageRequest.of(0, 2));
 		
+		System.out.println(blogs2);
+		
+		
+		BlogAnnotatedRepository2 bar2 = contexto.getBean(BlogAnnotatedRepository2.class);
+		blogs2 = bar2.buscandoPorTitulo("Titulo", PageRequest.of(0, 2));
+
 		System.out.println(blogs2);
 		
 		

@@ -11,7 +11,7 @@ public class Basico {
 		executor.submit(() -> {
 		    String threadName = Thread.currentThread().getName();
 		    System.out.println("Hello " + threadName);
-		});	
+		});
 		
 		try {
 		    System.out.println("Intento de detener el executor");
@@ -28,7 +28,5 @@ public class Basico {
 		    executor.shutdownNow();
 		    System.out.println("shutdown finished");
 		}
-
 	}
-
 }

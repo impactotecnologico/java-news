@@ -26,7 +26,6 @@ public class BlogController {
 	BlogService blogService;
 
 	@RequestMapping(value = "/blog", method = RequestMethod.GET)
-
 	@ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Successfully retrieved list"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),

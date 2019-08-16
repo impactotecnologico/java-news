@@ -16,11 +16,8 @@ public class Main {
 
 	}
 	
-	
-
 	private static void futuroSimple() throws InterruptedException, ExecutionException {
-		ScheduledExecutorService executor = Executors.
-			    newSingleThreadScheduledExecutor();
+		ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 			 
 			ScheduledFuture<String> future = executor.schedule(
 			    new Callable<String>() {
@@ -36,14 +33,32 @@ public class Main {
 			executor.shutdown();
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private static void conDelayAndPeriod() {
 		ScheduledExecutorService execService = Executors.newScheduledThreadPool(5);
 		execService.scheduleAtFixedRate(()->{
 
-			System.out.println("Momento: "+ new java.util.Date());
-		}, 2000L, 1000L, TimeUnit.MILLISECONDS);
+			System.out.println("Momento: "+ new java.util.Date()  + " - " + Thread.currentThread().getId() );
+		}, 0L, 1000L, TimeUnit.MILLISECONDS);
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

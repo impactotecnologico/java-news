@@ -9,7 +9,9 @@ public class Stream1 {
 		Stream.Builder<String> builder = Stream.builder();
 
 		// Añadiendo elementos al Stream
-		Stream<String> stream = builder.add("Geeks").build();
+		Stream<String> stream = builder.add("Geeks")
+				.add("Geeks 2")
+				.build();
 
 		// Mostrando elementos del Stream
 		stream.forEach(System.out::println);
